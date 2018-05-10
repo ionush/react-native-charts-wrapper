@@ -8,6 +8,8 @@ import com.github.wuxudong.rncharts.data.CombinedDataExtract;
 import com.github.wuxudong.rncharts.data.DataExtract;
 import com.github.wuxudong.rncharts.listener.RNOnChartGestureListener;
 import com.github.wuxudong.rncharts.listener.RNOnChartValueSelectedListener;
+import com.facebook.react.uimanager.annotations.ReactProp;
+
 
 public class CombinedChartManager extends BarLineChartBaseManager<CombinedChart, Entry> {
 
@@ -27,5 +29,10 @@ public class CombinedChartManager extends BarLineChartBaseManager<CombinedChart,
     @Override
     DataExtract getDataExtract() {
         return new CombinedDataExtract();
+    }
+
+    @ReactProp(name = "autoScaleMinMaxEnabled")
+    public void setAutoScaleMinMaxEnabled(CombinedChart chart, boolean enabled) {
+        chart.setAutoScaleMinMaxEnabled(enabled);
     }
 }
